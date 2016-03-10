@@ -584,6 +584,11 @@ struct Con {
     int num;
 
     /** Only applicable for containers of type CT_WORKSPACE. */
+    enum {
+        GAPS_NON_CUMULATIVE = 0,
+        GAPS_CUMULATIVE = 1
+    } gaps_behavior;
+
     gaps_t gaps;
 
     struct Con *parent;

@@ -589,7 +589,7 @@ struct Con {
         GAPS_CUMULATIVE = 1
     } gaps_behavior;
 
-    gaps_t gaps;
+    gaps_t gaps = 1;
 
     struct Con *parent;
 

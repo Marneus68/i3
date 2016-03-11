@@ -2047,8 +2047,10 @@ gaps_t calculate_effective_gaps(Con *con) {
         .inner = (workspace->gaps.inner + config.gaps.inner) / 2,
         .outer = workspace->gaps.outer + config.gaps.outer};
 
-    /* Outer gaps are added on top of inner gaps. */
-    gaps.outer += 2 * gaps.inner;
+    /* If cumulative gaps are enabled, the outer gaps are aded on
+     * top of the inner gaps */
+    if (workspace->gaps_behavior == 1)
+        gaps.outer += 2 * gaps.inner;
 
     return gaps;
 }

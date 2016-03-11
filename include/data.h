@@ -585,6 +585,11 @@ struct Con {
 
     /** Only applicable for containers of type CT_WORKSPACE. */
     gaps_t gaps;
+    /** Wether inner gaps should be added to outer gaps or not **/
+    enum {
+        GAPS_NONCUMULATIVE = 0,
+        GAPS_CUMULATIVE = 1
+    } gaps_behavior = 1;
 
     struct Con *parent;
 

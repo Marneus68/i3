@@ -2049,7 +2049,7 @@ gaps_t calculate_effective_gaps(Con *con) {
 
     /* If cumulative gaps are enabled, the outer gaps are aded on
      * top of the inner gaps */
-    if (workspace->gaps_behavior == 1)
+    if (workspace->gaps_behavior == GAPS_CUMULATIVE)
         gaps.outer += 2 * gaps.inner;
 
     return gaps;

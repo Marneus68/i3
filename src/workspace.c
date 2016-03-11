@@ -102,6 +102,7 @@ Con *workspace_get(const char *num, bool *created) {
         workspace->num = parsed_num;
         LOG("num = %d\n", workspace->num);
         workspace->gaps = gaps;
+        workspace->gaps_behavior = GAPS_CUMULATIVE;
 
         workspace->parent = content;
         _workspace_apply_default_orientation(workspace);

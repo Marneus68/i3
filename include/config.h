@@ -235,6 +235,10 @@ struct Config {
     /* Gap sizes */
     gaps_t gaps;
 
+    /* Gaps behavior */
+    int gaps_behavior;
+
+
     /* Should single containers on a workspace receive a border? */
     smart_borders_t smart_borders;
 

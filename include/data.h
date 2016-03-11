@@ -589,7 +589,7 @@ struct Con {
     enum {
         GAPS_NONCUMULATIVE = 0,
         GAPS_CUMULATIVE = 1
-    } gaps_behavior = 1;
+    } gaps_behavior;
 
     struct Con *parent;
 

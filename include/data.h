@@ -115,6 +115,15 @@ typedef enum {
 } i3_xkb_group_mask_t;
 
 /**
+ * Method used for the calculation of the outer gaps
+ * The default "legacy" behavior is GAPS_CUMULATIVE
+ */
+typedef enum {
+    GAPS_NON_CUMULATIVE = 0,
+    GAPS_CUMULATIVE = 1
+} gaps_behavior_t;
+
+/**
  * The lower 16 bits contain a xcb_key_but_mask_t, the higher 16 bits contain
  * an i3_xkb_group_mask_t. This type is necessary for the fallback logic to
  * work when handling XKB groups (see ticket #1775) and makes the code which
@@ -200,6 +209,7 @@ struct deco_render_params {
 struct Workspace_Assignment {
     char *name;
     char *output;
+    gaps_behavior_t gaps_behavior;
     gaps_t gaps;
 
     TAILQ_ENTRY(Workspace_Assignment) ws_assignments;
@@ -584,12 +594,8 @@ struct Con {
     int num;
 
     /** Only applicable for containers of type CT_WORKSPACE. */
-    enum {
-        GAPS_NON_CUMULATIVE = 0,
-        GAPS_CUMULATIVE = 1
-    } gaps_behavior;
-
-    gaps_t gaps = 1;
+    gaps_behavior_t gaps_behavior;
+    gaps_t gaps;
 
     struct Con *parent;
 
